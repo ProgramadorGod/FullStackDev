@@ -17,8 +17,28 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from Api.views import ItemViewSet
+from django.conf.urls.static import static
+from django.conf import settings
+
+
+router = DefaultRouter()
+router.register(r'items', ItemViewSet, basename='item')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='index.html'))
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('About', TemplateView.as_view(template_name='index.html')),
+    path('Contact', TemplateView.as_view(template_name='index.html')),
+    path('Cart', TemplateView.as_view(template_name='index.html')),
+    path('Store', TemplateView.as_view(template_name='index.html')),
+    path('api/', include(router.urls)),
+
+
+
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

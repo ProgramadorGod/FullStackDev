@@ -38,11 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'Api',
+    'StoreApp',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -50,13 +55,21 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS=[
+    "http://localhost:3000",
+
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+
 ROOT_URLCONF = 'DjangoApp.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'reactappgod/build')
+            os.path.join(BASE_DIR, 'bargod/build')
 
         ],
         'APP_DIRS': True,
@@ -120,9 +133,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = 'itemspics/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'itemspics')
 
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR, 'reactappgod/build/static')
+    os.path.join(BASE_DIR, 'bargod/build/static'),
+    
+
 
 ]
 
