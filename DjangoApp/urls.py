@@ -22,10 +22,13 @@ from rest_framework.routers import DefaultRouter
 from Api.views import ItemViewSet
 from django.conf.urls.static import static
 from django.conf import settings
-
+from StoreApp.views import Store
 
 router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
+
+
+router.register(r'products', Store, basename='product')
 
 
 urlpatterns = [
@@ -38,7 +41,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
 
 
-
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL2, document_root=settings.MEDIA_ROOT2)

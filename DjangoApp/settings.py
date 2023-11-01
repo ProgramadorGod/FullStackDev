@@ -135,6 +135,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'itemspics/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'itemspics')
+MEDIA_URL2 = 'storepics/'
+MEDIA_ROOT2 = os.path.join(BASE_DIR,'storepics')
+
+
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'bargod/build/static'),
