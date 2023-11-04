@@ -23,6 +23,7 @@ from Api.views import ItemViewSet
 from django.conf.urls.static import static
 from django.conf import settings
 from StoreApp.views import Store
+from contact import views
 
 router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
@@ -39,6 +40,8 @@ urlpatterns = [
     path('Cart', TemplateView.as_view(template_name='index.html')),
     path('Store', TemplateView.as_view(template_name='index.html')),
     path('api/', include(router.urls)),
+    path('FormUrl/', views.ContactView, name="FormUrl")
+    
 
 
 ]
