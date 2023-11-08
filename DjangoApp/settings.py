@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Api',
     'StoreApp',
     'contact',
+    'UserProducts',
 ]
 
 MIDDLEWARE = [
@@ -153,11 +154,12 @@ STATICFILES_DIRS=[
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.mailtrap.io"
-EMAIL_PORT = "2525"
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Host y puerto de MailCatcher
+EMAIL_HOST = '127.0.0.1'
+EMAIL_PORT = 1025
+# Otras configuraciones (puedes ajustar según sea necesario)
+EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = "d2b854bb60cbed"
-EMAIL_HOST_PASSWORD = "754ed39a08464e"
+EMAIL_USE_LOCALTIME = True
 

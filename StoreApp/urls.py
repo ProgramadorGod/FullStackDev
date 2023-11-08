@@ -10,5 +10,5 @@ router2.register(r'Products', Store, basename='product')
 
 urlpatterns = [
     path('api/', include(router2.urls)),
-
+    
 ]

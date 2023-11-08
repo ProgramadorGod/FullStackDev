@@ -19,8 +19,8 @@ def ContactView(request):
     Message = data["message"]
 
     print('Datos recibidos en Django:', data)
-    Phone = Phone + Name
-    email = EmailMessage(Phone, Message, "pipenet12@gmail.com",[Email])
+    Message = Name + "\n" + Message 
+    email = EmailMessage(Phone, Message, Email ,["pipenet12@gmail.com"])
     email.send()
 
     return JsonResponse({'Status': 'Ok'})
