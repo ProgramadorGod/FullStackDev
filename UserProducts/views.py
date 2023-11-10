@@ -32,6 +32,7 @@ def AddProduct(request):
                 if request.user.is_authenticated:
                     print("GOD")
                     productt = Product.objects.get(id=productId)
+                    print(productt.Name)
                     ProductRelation.objects.create(
                     user = request.user,
                     product = productt,

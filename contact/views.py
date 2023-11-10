@@ -13,6 +13,7 @@ from django.core.mail import EmailMessage
 @require_POST
 def ContactView(request):
     data = json.loads(request.body.decode('utf-8'))
+    
     Name = data["name"]
     Email = data["email"]
     Phone = data["phone"]
