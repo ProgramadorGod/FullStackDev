@@ -27,6 +27,7 @@ from contact.views import ContactView
 from UserProducts.views import UserProducts
 
 
+
 router = DefaultRouter()
 router.register(r'UserProducts', UserProducts, basename="UserProducts")
 router.register(r'products', Store, basename='product')
@@ -40,6 +41,7 @@ urlpatterns = [
     path('Contact', TemplateView.as_view(template_name='index.html')),
     path('Cart', TemplateView.as_view(template_name='index.html')),
     path('Store', TemplateView.as_view(template_name='index.html')),
+    
     path('api/', include(router.urls)),
     path('FormUrl/', ContactView, name="FormUrl"),
     path('AddProduct/', AddProduct, name="AddProduct"),
