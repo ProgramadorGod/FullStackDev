@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Item
+from .models import CustomUser
 
-class ItemSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 
     # def to_representation(self, instance):
     #     representation = super().to_representation(instance)
@@ -12,5 +12,5 @@ class ItemSerializer(serializers.ModelSerializer):
     #     return representation
 
     class Meta:
-        model = Item
-        fields = '__all__'
+        model = CustomUser
+        fields = ('id', 'username', 'email', 'password')

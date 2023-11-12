@@ -19,7 +19,6 @@ from django.urls import path
 from django.views.generic import TemplateView
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from Api.views import ItemViewSet
 from django.conf.urls.static import static
 from django.conf import settings
 from StoreApp.views import Store
@@ -29,10 +28,9 @@ from UserProducts.views import UserProducts
 
 
 router = DefaultRouter()
-router.register(r'items', ItemViewSet, basename='item')
 router.register(r'UserProducts', UserProducts, basename="UserProducts")
-
 router.register(r'products', Store, basename='product')
+
 
 
 urlpatterns = [
@@ -44,7 +42,8 @@ urlpatterns = [
     path('Store', TemplateView.as_view(template_name='index.html')),
     path('api/', include(router.urls)),
     path('FormUrl/', ContactView, name="FormUrl"),
-    path('AddProduct/', AddProduct, name="AddProduct")
+    path('AddProduct/', AddProduct, name="AddProduct"),
+    
 
 
 ]
