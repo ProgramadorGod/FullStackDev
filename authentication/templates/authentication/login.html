@@ -1,0 +1,17 @@
+{% load static %}
+{% block content %}
+
+    <div style="color: aliceblue;">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token%}
+            <input name="user" placeholder="Username" type="text"/>
+            <input name="password" placeholder="Password" type="password"/>
+            <input type="submit" placeholder="Login"/>
+        </form>
+
+        <p>Si no tienes una cuenta, <a href="/authentication/Register/">regístrate aquí</a>.</p>
+
+    </div>
+
+{% endblock%}
