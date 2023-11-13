@@ -26,12 +26,12 @@ from StoreApp.views import Store
 from UserProducts.views import AddProduct
 from contact.views import ContactView
 from UserProducts.views import UserProducts
-from USERS.views import UsuarioLista
+from USERS.views import UserListView
 
 router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
 router.register(r'UserProducts', UserProducts, basename="UserProducts")
-router.register(r'users', UsuarioLista, basename='users')
+router.register(r'users', UserListView, basename='users')
 
 router.register(r'products', Store, basename='product')
 
