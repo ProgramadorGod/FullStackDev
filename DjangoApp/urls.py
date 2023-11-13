@@ -19,6 +19,7 @@ from django.urls import path
 from django.views.generic import TemplateView
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from Api.views import ItemViewSet
 from django.conf.urls.static import static
 from django.conf import settings
 from StoreApp.views import Store
@@ -27,22 +28,12 @@ from contact.views import ContactView
 from UserProducts.views import UserProducts
 from USERS.views import UserListView
 
-<<<<<<< HEAD
-=======
 router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
 router.register(r'UserProducts', UserProducts, basename="UserProducts")
-<<<<<<< HEAD
-router.register(r'users', UsuarioLista, basename='users')
->>>>>>> ed023ada838ca924eb27c27bf2909913fdc57aca
-=======
 router.register(r'users', UserListView, basename='users')
->>>>>>> good
 
-router = DefaultRouter()
-router.register(r'UserProducts', UserProducts, basename="UserProducts")
 router.register(r'products', Store, basename='product')
-
 
 
 urlpatterns = [
@@ -52,16 +43,11 @@ urlpatterns = [
     path('Contact', TemplateView.as_view(template_name='index.html')),
     path('Cart', TemplateView.as_view(template_name='index.html')),
     path('Store', TemplateView.as_view(template_name='index.html')),
-    
     path('api/', include(router.urls)),
     path('FormUrl/', ContactView, name="FormUrl"),
     path('AddProduct/', AddProduct, name="AddProduct"),
-<<<<<<< HEAD
-    
-=======
     path('authentication/', include('authentication.urls')),
 
->>>>>>> ed023ada838ca924eb27c27bf2909913fdc57aca
 
 
 ]
