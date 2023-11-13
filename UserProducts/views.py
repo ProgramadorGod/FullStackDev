@@ -23,16 +23,21 @@ def AddProduct(request):
         data = json.loads(request.body)
         productId= data.get("productId")
         action = data.get("action")
-        user = authenticate(request, username="ProgramadorGod", password="Felipe19.")
+        user = authenticate(request, username="Lol", password="passwordgod")
+        
         login(request,user)
+        print("Login Success...")
+
         print(request.user.is_authenticated)
         if action == "Add_Product":
+            
             print("Action passed")
             try:
                 if request.user.is_authenticated:
                     print("GOD")
                     productt = Product.objects.get(id=productId)
                     print(productt.Name)
+                    print("Request USER : " + str(request.user))
                     ProductRelation.objects.create(
                     user = request.user,
                     product = productt,
@@ -45,5 +50,8 @@ def AddProduct(request):
 
 
 
-
     return JsonResponse({'Status': 'Ok'})
+
+
+
+

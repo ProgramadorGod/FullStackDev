@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'StoreApp',
     'contact',
     'UserProducts',
+    'USERS',
+    'authentication',
 ]
 
 MIDDLEWARE = [

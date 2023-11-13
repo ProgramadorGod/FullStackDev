@@ -26,11 +26,12 @@ from StoreApp.views import Store
 from UserProducts.views import AddProduct
 from contact.views import ContactView
 from UserProducts.views import UserProducts
-
+from USERS.views import UsuarioLista
 
 router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
 router.register(r'UserProducts', UserProducts, basename="UserProducts")
+router.register(r'users', UsuarioLista, basename='users')
 
 router.register(r'products', Store, basename='product')
 
@@ -44,7 +45,9 @@ urlpatterns = [
     path('Store', TemplateView.as_view(template_name='index.html')),
     path('api/', include(router.urls)),
     path('FormUrl/', ContactView, name="FormUrl"),
-    path('AddProduct/', AddProduct, name="AddProduct")
+    path('AddProduct/', AddProduct, name="AddProduct"),
+    path('authentication/', include('authentication.urls')),
+
 
 
 ]

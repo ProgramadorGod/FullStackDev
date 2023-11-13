@@ -9,4 +9,3 @@ class ProductRelation(models.Model):
     user = models.ForeignKey(User,null="True",on_delete=models.CASCADE)
     product = models.ForeignKey(Product,null="True",on_delete=models.CASCADE)
 
-
