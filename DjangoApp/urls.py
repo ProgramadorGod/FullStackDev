@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+#from rest_framework_jwt.views import obtain_jwt_token
 from django.urls import path
 from django.views.generic import TemplateView
 from django.urls import path, include
@@ -27,16 +28,21 @@ from UserProducts.views import AddProduct
 from contact.views import ContactView
 from UserProducts.views import UserProducts
 from USERS.views import UserListView
+from UserProducts.serializers import FilterByUser
+from UserProducts.views import Lol
+#from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
 
 router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
 router.register(r'UserProducts', UserProducts, basename="UserProducts")
 router.register(r'users', UserListView, basename='users')
-
 router.register(r'products', Store, basename='product')
+router.register(r'Lol', Lol, basename='Lol')
 
 
 urlpatterns = [
+    # url(r'^api-token-auth/', obtain_jwt_token),
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),
     path('About', TemplateView.as_view(template_name='index.html')),
@@ -44,9 +50,12 @@ urlpatterns = [
     path('Cart', TemplateView.as_view(template_name='index.html')),
     path('Store', TemplateView.as_view(template_name='index.html')),
     path('api/', include(router.urls)),
+    path('api/Filter_by_user', FilterByUser, name="filter_by_user"),
     path('FormUrl/', ContactView, name="FormUrl"),
     path('AddProduct/', AddProduct, name="AddProduct"),
     path('authentication/', include('authentication.urls')),
+
+#    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 
 
 
