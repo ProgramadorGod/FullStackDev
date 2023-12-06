@@ -16,10 +16,10 @@ from rest_framework.response import Response
 class UserProducts(viewsets.ModelViewSet):
     queryset=ProductRelation.objects.all()
     serializer_class= UserProductSerializer
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
-    def list(self, request) -> (Response):
-        return Response(self.get_serializer(self.get_queryset().filter(user=request.user), many=True).data)
+    # def list(self, request) -> (Response):
+    #     return Response(self.get_serializer(self.get_queryset().filter(user=request.user), many=True).data)
 
 @csrf_exempt  
 @require_POST
