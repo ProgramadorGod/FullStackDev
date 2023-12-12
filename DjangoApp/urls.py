@@ -10,8 +10,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 from StoreApp.views import Store
 from contact.views import ContactView
+from Base.api import views
 #from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from Base.api.views import getUserProducts
+from Base.api.views import getNotes2
+
 
 router = DefaultRouter()
 router.register(r'items', ItemViewSet, basename='item')
@@ -32,6 +35,8 @@ urlpatterns = [
     path('api2/', include('Base.api.urls')),
     path('FormUrl/', ContactView, name="FormUrl"),
     path('authentication/', include('authentication.urls')),
+    path('notes2/', views.getNotes2),
+
 
 #    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 

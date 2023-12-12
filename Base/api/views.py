@@ -25,9 +25,16 @@ class getUserProducts(viewsets.ModelViewSet):
     serializer_class = UserProductsSerializer
     def get_queryset(self):
         user=self.request.user
-        return user.username
+        return UserProducts.objects.filter(user=user)
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getNotes2(request):
+    user = request.user
+    notes=user.note_set.all()
+    serializer = UserProductsSerializer(UserProducts,many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
