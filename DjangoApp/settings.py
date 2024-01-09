@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'Api',
     'StoreApp',
     'contact',
-    'USERS',
     'authentication',
     'Base.apps.BaseConfig',
     'rest_framework_simplejwt.token_blacklist',
@@ -115,9 +114,28 @@ REST_FRAMEWORK = {
 }
 
 
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+ALLOWED_HOSTS = ['192.168.0.17', 'localhost', '127.0.0.1', '[::1]', '192.168.0.17:8000']
+
+
 
 CORS_ALLOWED_ORIGINS=[
     "http://localhost:3000",
+    "http://192.168.0.17:3000",
+    "http://192.168.0.17",
+
+
 
 ]
 
